@@ -23,14 +23,20 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.navigationBarHidden = NO;
     nav.navigationBar.barStyle = UIBarStyleBlack;
+    nav.navigationBar.topItem.title = @"代码库";
 //    nav.hidesBarsOnTap = YES;
     nav.toolbarHidden = NO;
     nav.toolbar.barStyle = UIBarStyleBlack;
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
+    nav.navigationBar.topItem.rightBarButtonItem = barButton;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
 
+-(IBAction)onAdd:(id)sender{
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
