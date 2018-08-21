@@ -8,8 +8,12 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "DetailViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    ViewController *vc;
+    UINavigationController *nav;
+}
 
 @end
 
@@ -19,13 +23,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *vc = [[ViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    vc = [[ViewController alloc]init];
+    nav = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.navigationBarHidden = NO;
     nav.navigationBar.barStyle = UIBarStyleBlack;
     nav.navigationBar.topItem.title = @"代码库";
 //    nav.hidesBarsOnTap = YES;
-    nav.toolbarHidden = NO;
+    nav.toolbarHidden = YES;
     nav.toolbar.barStyle = UIBarStyleBlack;
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
     nav.navigationBar.topItem.rightBarButtonItem = barButton;
@@ -35,6 +39,8 @@
 }
 
 -(IBAction)onAdd:(id)sender{
+    DetailViewController *dc = [[DetailViewController alloc]init];
+    [nav pushViewController:dc animated:YES];
     
 }
 

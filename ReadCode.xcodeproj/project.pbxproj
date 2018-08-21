@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B422BA1212C68B9003BBB87 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B422BA0212C68B9003BBB87 /* DetailViewController.m */; };
 		9BAC1235212C4EBB00876AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC1234212C4EBB00876AE0 /* AppDelegate.m */; };
 		9BAC1238212C4EBB00876AE0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC1237212C4EBB00876AE0 /* ViewController.m */; };
 		9BAC123D212C4EBD00876AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC123C212C4EBD00876AE0 /* Assets.xcassets */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B422B9F212C68B9003BBB87 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		9B422BA0212C68B9003BBB87 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9BAC1230212C4EBB00876AE0 /* ReadCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAC1233212C4EBB00876AE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9BAC1234212C4EBB00876AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +63,8 @@
 				9BAC1234212C4EBB00876AE0 /* AppDelegate.m */,
 				9BAC1236212C4EBB00876AE0 /* ViewController.h */,
 				9BAC1237212C4EBB00876AE0 /* ViewController.m */,
+				9B422B9F212C68B9003BBB87 /* DetailViewController.h */,
+				9B422BA0212C68B9003BBB87 /* DetailViewController.m */,
 				9BAC123C212C4EBD00876AE0 /* Assets.xcassets */,
 				9BAC123E212C4EBD00876AE0 /* LaunchScreen.storyboard */,
 				9BAC1241212C4EBD00876AE0 /* Info.plist */,
@@ -140,6 +145,7 @@
 				9BAC1238212C4EBB00876AE0 /* ViewController.m in Sources */,
 				9BAC1243212C4EBD00876AE0 /* main.m in Sources */,
 				9BAC1235212C4EBB00876AE0 /* AppDelegate.m in Sources */,
+				9B422BA1212C68B9003BBB87 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DetailViewController.h
 //  ReadCode
 //
 //  Created by 周鹏 on 2018/8/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-
+@interface DetailViewController : UIViewController
 
 @end
-
