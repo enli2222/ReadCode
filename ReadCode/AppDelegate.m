@@ -21,7 +21,11 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     ViewController *vc = [[ViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//    nav.navigationBarHidden = YES;
+    nav.navigationBarHidden = NO;
+    nav.navigationBar.barStyle = UIBarStyleBlack;
+//    nav.hidesBarsOnTap = YES;
+    nav.toolbarHidden = NO;
+    nav.toolbar.barStyle = UIBarStyleBlack;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
