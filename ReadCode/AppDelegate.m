@@ -39,8 +39,32 @@
 }
 
 -(IBAction)onAdd:(id)sender{
-    DetailViewController *dc = [[DetailViewController alloc]init];
-    [nav pushViewController:dc animated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"新增" message:@"请输入名称和URL地址" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"项目描述";
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"项目URL地址";
+//        textField.secureTextEntry = YES;
+    }];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"Cancel Action");
+    }];
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"新增" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *name = alert.textFields.firstObject;
+        UITextField *url= alert.textFields.lastObject;
+        
+        NSLog(@"name is %@, url is %@",name.text,url.text);
+//        DetailViewController *dc = [[DetailViewController alloc]init];
+//        [self->nav pushViewController:dc animated:YES];
+    }];
+
+    [alert addAction:cancelAction];
+    [alert addAction:addAction];
+
+    [nav presentViewController:alert animated:YES completion:nil];
     
 }
 
