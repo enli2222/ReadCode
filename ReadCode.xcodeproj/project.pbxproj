@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8DD48DC8212D0C7B00861DEB /* ELProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DC7212D0C7B00861DEB /* ELProject.m */; };
 		8DD48DD7212D562600861DEB /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DCD212D562500861DEB /* AFSecurityPolicy.m */; };
 		8DD48DD8212D562600861DEB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DCE212D562500861DEB /* AFURLSessionManager.m */; };
 		8DD48DD9212D562600861DEB /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DD0212D562500861DEB /* AFURLRequestSerialization.m */; };
@@ -24,8 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8DD48DC6212D0C7B00861DEB /* ELProject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELProject.h; sourceTree = "<group>"; };
-		8DD48DC7212D0C7B00861DEB /* ELProject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELProject.m; sourceTree = "<group>"; };
 		8DD48DCA212D562500861DEB /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		8DD48DCB212D562500861DEB /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		8DD48DCC212D562500861DEB /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
@@ -70,8 +67,6 @@
 			children = (
 				8DD48DDD212D577500861DEB /* ELDownloader.h */,
 				8DD48DDE212D577500861DEB /* ELDownloader.m */,
-				8DD48DC6212D0C7B00861DEB /* ELProject.h */,
-				8DD48DC7212D0C7B00861DEB /* ELProject.m */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -200,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD48DC8212D0C7B00861DEB /* ELProject.m in Sources */,
 				8DD48DDF212D577500861DEB /* ELDownloader.m in Sources */,
 				9BAC1238212C4EBB00876AE0 /* ViewController.m in Sources */,
 				8DD48DDB212D562600861DEB /* AFNetworkReachabilityManager.m in Sources */,
@@ -343,14 +337,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = W8S3N3PF3U;
 				INFOPLIST_FILE = ReadCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpjoe.ReadCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enterprise.ztqft.text;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "13ac12ac-b77e-47e9-902b-4ba0eca786a1";
+				PROVISIONING_PROFILE_SPECIFIER = "DEV Enterprise ztqft";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -359,14 +357,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = ReadCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpjoe.ReadCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enterprise.ztqft.text;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "DEV Enterprise ztqft";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

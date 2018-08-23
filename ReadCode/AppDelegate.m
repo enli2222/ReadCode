@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "ELDownloader.h"
 
 @interface AppDelegate (){
     ViewController *vc;
@@ -57,14 +58,16 @@
         UITextField *url= alert.textFields.lastObject;
         
         NSLog(@"name is %@, url is %@",name.text,url.text);
+        
 //        DetailViewController *dc = [[DetailViewController alloc]init];
 //        [self->nav pushViewController:dc animated:YES];
+        [[[ELDownloader alloc]initWithURL:@"https://github.com/enli2222/AudioRecognitionDemo/archive/master.zip"]resume];
     }];
 
     [alert addAction:cancelAction];
     [alert addAction:addAction];
 
-    [nav presentViewController:alert animated:YES completion:nil];
+    [nav presentViewController:alert animated:NO completion:nil];
     
 }
 

@@ -10,6 +10,8 @@
 
 @interface ELDownloader : NSObject
 
--(void)getZip:(NSString *)url;
+-(instancetype)initWithURL:(NSString *)url;
+-(void)suspend;
+-(void)resume;
 
 @end
