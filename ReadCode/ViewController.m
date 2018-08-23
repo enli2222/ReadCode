@@ -44,9 +44,7 @@
     
     // 3.覆盖数据
     cell.textLabel.text = [NSString stringWithFormat:@"testdata - %zd", indexPath.row];
-    
     return cell;
-    
 }
 
 
