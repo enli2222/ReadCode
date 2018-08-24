@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZipArchive.h"
 
-@interface ELDownloader : NSObject
+@interface ELDownloader : NSObject<SSZipArchiveDelegate>
 
--(instancetype)initWithURL:(NSString *)url;
+-(instancetype)initWithURL:(NSString *)url end:(void (^)(NSString *path)) endBlock;
 -(void)suspend;
 -(void)resume;
 

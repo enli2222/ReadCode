@@ -34,10 +34,36 @@
     return result;
 }
 
+-(NSMutableArray *)getThroughAllatPath:(NSString *)path depth:(NSInteger)depth{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *fileList = [fileManager contentsOfDirectoryAtPath:path error:&error];
+    BOOL isDir = NO;
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    for (NSString *file in fileList) {
+        NSString *subpath = [path stringByAppendingPathComponent:file];
+        [fileManager fileExistsAtPath:subpath isDirectory:(&isDir)];
+        ELFileNode *node = [[ELFileNode alloc]init];
+        node.path = path;
+        node.name = file;
+        node.depth = depth +1;
+        node.expand = NO;
+        if (isDir) {
+            node.type = 0;
+        }else{
+            node.type = 1;
+        }
+        isDir = NO;
+        [result addObject:node];
+    }
+    return result;
+    
+}
+
 -(instancetype)initWithPach:(NSString *)path{
     if (self = [super init]) {
         _path = path;
-        _data = [[NSMutableArray alloc]initWithArray: [self createDemoData:0]];
+        _data = [self getThroughAllatPath:_path depth:0];
     }
     return self;
 }
@@ -72,7 +98,11 @@
     // 3.覆盖数据
     if ([_data count] > indexPath.row) {
         ELFileNode *file =_data[indexPath.row];
-        cell.textLabel.text = file.name;
+        NSString *title =file.name;
+        for (int i=0; i<file.depth; i++) {
+            title = [NSString stringWithFormat:@"-%@",title];
+        }
+        cell.textLabel.text = title;
     }else{
         cell.textLabel.text = @"错误节点";
     }
@@ -83,8 +113,8 @@
     ELFileNode *parentNode = _data[indexPath.row];
     NSInteger startPosition = indexPath.row +1;
     BOOL expand = parentNode.expand;
-    if (!expand) {
-        NSArray *insertData = [self createDemoData:parentNode.depth];
+    if (parentNode.type == 0  && !expand ) {
+        NSArray *insertData = [self getThroughAllatPath: [NSString stringWithFormat:@"%@/%@", parentNode.path,parentNode.name] depth:parentNode.depth];
         NSMutableArray *indexPathArray = [NSMutableArray array];
         for (int i=0; i < [insertData count]; i++) {
             ELFileNode *node =[insertData objectAtIndex:i];

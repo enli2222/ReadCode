@@ -8,19 +8,22 @@
 
 #import "ELDownloader.h"
 #import "AFNetworking.h"
-#import "ZipArchive.h"
+
+typedef void(^EndBlock)(NSString *);
 
 @interface ELDownloader(){
     NSURLSessionDownloadTask *_downloadTask;
     NSString * _url;
+    EndBlock _endBlock;
 }
 @end
 
 @implementation ELDownloader
 
--(instancetype)initWithURL:(NSString *)url{
+-(instancetype)initWithURL:(NSString *)url end:(void (^)(NSString *dpath)) endBlock{
     if (self=[super init]) {
         _url = url;
+        _endBlock = endBlock;
     }
     return self;
 }
@@ -55,15 +58,26 @@
         if (error) {
             NSLog(@"%@",error.description);
         }else{
-            NSString *path =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *dpath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
              NSLog(@"%@",[filePath path]);
-            if (![SSZipArchive unzipFileAtPath:[filePath path] toDestination:path]) {
+            if (![SSZipArchive unzipFileAtPath:[filePath path] toDestination:dpath delegate:self]) {
                 NSLog(@"解压失败");
             }
             
         }
     }];
     
+}
+
+- (void)zipArchiveDidUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo unzippedPath:(NSString *)unzippedPath{
+    
+    NSString *dpath = [NSString stringWithFormat:@"%@/%@",unzippedPath,[[path lastPathComponent] stringByDeletingPathExtension]];
+    NSLog(@"%@",dpath);
+    if (self->_endBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self->_endBlock(dpath);
+        });
+    }
 }
 
 @end
