@@ -59,9 +59,9 @@
         
         NSLog(@"name is %@, url is %@",name.text,url.text);
         
-//        DetailViewController *dc = [[DetailViewController alloc]init];
-//        [self->nav pushViewController:dc animated:YES];
-        [[[ELDownloader alloc]initWithURL:@"https://github.com/enli2222/AudioRecognitionDemo/archive/master.zip"]resume];
+        DetailViewController *dc = [[DetailViewController alloc]initWithPach:@"/Users/enli/Library/Developer/CoreSimulator/Devices/A465F443-9E49-452F-B9B1-75B69AB63703/data/Containers/Data/Application/A37A04E5-AA01-4F47-AEBC-C9920BAF5B0F/Documents/AudioRecognitionDemo-master"];
+        [self->nav pushViewController:dc animated:YES];
+//        [[[ELDownloader alloc]initWithURL:@"https://github.com/enli2222/AudioRecognitionDemo/archive/master.zip"]resume];
     }];
 
     [alert addAction:cancelAction];

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
-
+@interface DetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+-(instancetype)initWithPach:(NSString *)path;
 @end

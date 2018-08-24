@@ -31,6 +31,7 @@
 		8DD48E17212FD6FB00861DEB /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E03212FD6FA00861DEB /* pwd2key.c */; };
 		8DD48E18212FD6FB00861DEB /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E04212FD6FA00861DEB /* aestab.c */; };
 		8DD48E19212FD6FB00861DEB /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E07212FD6FB00861DEB /* SSZipArchive.m */; };
+		8DD48E1E213000C400861DEB /* ELFileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E1D213000C400861DEB /* ELFileNode.m */; };
 		9B422BA1212C68B9003BBB87 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B422BA0212C68B9003BBB87 /* DetailViewController.m */; };
 		9BAC1235212C4EBB00876AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC1234212C4EBB00876AE0 /* AppDelegate.m */; };
 		9BAC1238212C4EBB00876AE0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC1237212C4EBB00876AE0 /* ViewController.m */; };
@@ -93,6 +94,8 @@
 		8DD48E06212FD6FA00861DEB /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
 		8DD48E07212FD6FB00861DEB /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		8DD48E08212FD6FB00861DEB /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
+		8DD48E1C213000C400861DEB /* ELFileNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELFileNode.h; sourceTree = "<group>"; };
+		8DD48E1D213000C400861DEB /* ELFileNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELFileNode.m; sourceTree = "<group>"; };
 		9B422B9F212C68B9003BBB87 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9B422BA0212C68B9003BBB87 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9BAC1230212C4EBB00876AE0 /* ReadCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,8 @@
 			children = (
 				8DD48DDD212D577500861DEB /* ELDownloader.h */,
 				8DD48DDE212D577500861DEB /* ELDownloader.m */,
+				8DD48E1C213000C400861DEB /* ELFileNode.h */,
+				8DD48E1D213000C400861DEB /* ELFileNode.m */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			files = (
 				8DD48E11212FD6FB00861DEB /* hmac.c in Sources */,
 				8DD48DDF212D577500861DEB /* ELDownloader.m in Sources */,
+				8DD48E1E213000C400861DEB /* ELFileNode.m in Sources */,
 				9BAC1238212C4EBB00876AE0 /* ViewController.m in Sources */,
 				8DD48DDB212D562600861DEB /* AFNetworkReachabilityManager.m in Sources */,
 				8DD48E18212FD6FB00861DEB /* aestab.c in Sources */,
