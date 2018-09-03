@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+-(IBAction)onAdd:(id)sender;
 
 @end
 

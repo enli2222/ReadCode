@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "DetailViewController.h"
-#import "ELDownloader.h"
 
 @interface AppDelegate (){
     ViewController *vc;
@@ -32,45 +31,13 @@
 //    nav.hidesBarsOnTap = YES;
     nav.toolbarHidden = YES;
     nav.toolbar.barStyle = UIBarStyleBlack;
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:vc action:@selector(onAdd:)];
     nav.navigationBar.topItem.rightBarButtonItem = barButton;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
 
--(IBAction)onAdd:(id)sender{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"新增" message:@"请输入名称和URL地址" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"项目描述";
-    }];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"项目URL地址";
-//        textField.secureTextEntry = YES;
-    }];
-
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Cancel Action");
-    }];
-    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"新增" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UITextField *name = alert.textFields.firstObject;
-        UITextField *url= alert.textFields.lastObject;
-        
-        NSLog(@"name is %@, url is %@",name.text,url.text);
-
-        [[[ELDownloader alloc]initWithURL:@"https://github.com/enli2222/AudioRecognitionDemo/archive/master.zip" end:^(NSString *dpath) {
-            DetailViewController *dc = [[DetailViewController alloc]initWithPach:dpath];
-            [self->nav pushViewController:dc animated:YES];
-        }]resume];
-    }];
-
-    [alert addAction:cancelAction];
-    [alert addAction:addAction];
-
-    [nav presentViewController:alert animated:NO completion:nil];
-    
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
