@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ELProject.h"
 
 @interface DetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
--(instancetype)initWithPach:(NSString *)path;
+-(instancetype)initWithProject:(ELProject *)project;
 @end

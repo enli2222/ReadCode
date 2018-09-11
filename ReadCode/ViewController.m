@@ -62,10 +62,6 @@
         [p save];
         self->datalist = [ELProject getlist];
         [self->tbList reloadData];
-        //        [[[ELDownloader alloc]initWithURL:@"https://github.com/enli2222/AudioRecognitionDemo/archive/master.zip" end:^(NSString *dpath) {
-        //            DetailViewController *dc = [[DetailViewController alloc]initWithPach:dpath];
-        //            [self->nav pushViewController:dc animated:YES];
-        //        }]resume];
     }];
     
     [alert addAction:cancelAction];
@@ -79,14 +75,27 @@
 }
 
 -(IBAction)onReloadClick:(id)sender{
-    
+    if (indexOpenCell > -1 && indexOpenCell < [datalist count]) {
+        ELProject *p = [[ELProject alloc]initWithID:datalist[indexOpenCell]];
+        if (p.url && [p.url length] > 0) {
+            [[[ELDownloader alloc]initWithURL:p.url end:^(NSString *dpath) {
+                p.path = dpath;
+                [p save];
+                DetailViewController *dc = [[DetailViewController alloc]initWithProject:p];
+                [self.navigationController pushViewController:dc animated:YES];
+            }]resume];
+        }
+    }
+
 }
 
 -(IBAction)onDetailClick:(id)sender{
     if (indexOpenCell > -1 && indexOpenCell < [datalist count]) {
         ELProject *p = [[ELProject alloc]initWithID:datalist[indexOpenCell]];
-        DetailViewController *dc = [[DetailViewController alloc]initWithPach:p];
-        [self.navigationController pushViewController:dc animated:YES];
+        if (p.path && [p.path length] > 0) {
+            DetailViewController *dc = [[DetailViewController alloc]initWithProject:p];
+            [self.navigationController pushViewController:dc animated:YES];
+        }
     }
 }
 

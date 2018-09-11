@@ -10,7 +10,7 @@
 #import "ELFileNode.h"
 
 @interface DetailViewController (){
-    NSString *_path;
+    ELProject *_project;
     UITableView *directories;
     NSMutableArray *_data;
 }
@@ -60,10 +60,10 @@
     
 }
 
--(instancetype)initWithPach:(NSString *)path{
+-(instancetype)initWithProject:(ELProject *)project{
     if (self = [super init]) {
-        _path = path;
-        _data = [self getThroughAllatPath:_path depth:0];
+        _project = project;
+        _data = [self getThroughAllatPath:_project.path depth:0];
     }
     return self;
 }

@@ -139,6 +139,7 @@
 		8DD48E1D213000C400861DEB /* ELFileNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELFileNode.m; sourceTree = "<group>"; };
 		8DED19EC21479664009DFD60 /* ELProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELProject.m; sourceTree = "<group>"; };
 		8DED19ED21479664009DFD60 /* ELProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELProject.h; sourceTree = "<group>"; };
+		9B1888742147F8E7004299B6 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		9B422B9F212C68B9003BBB87 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9B422BA0212C68B9003BBB87 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9BAC1230212C4EBB00876AE0 /* ReadCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				8DD48DD2212D562600861DEB /* AFHTTPSessionManager.h */,
+				9B1888742147F8E7004299B6 /* AFCompatibilityMacros.h */,
 				8DD48DD3212D562600861DEB /* AFHTTPSessionManager.m */,
 				8DD48DCA212D562500861DEB /* AFNetworking.h */,
 				8DD48DCB212D562500861DEB /* AFNetworkReachabilityManager.h */,

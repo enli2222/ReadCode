@@ -32,7 +32,7 @@
     _project = project;
     lbTitle.text = _project.title;
     lbUrl.text = _project.url;
-//    lbPath.text = _project.path;
+    lbPath.text = _project.path;
 }
 
 -(instancetype)initWithController:(UIViewController *)vc  reuseIdentifier:(NSString *)reuseIdentifier;{
@@ -45,12 +45,27 @@
         lbTitle = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 100, 25)];
         lbTitle.text = @"Title";
         [self.contentView addSubview:lbTitle];
+        [lbTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@5);
+            make.left.equalTo(@5);
+            make.width.mas_equalTo(self).offset(-10);
+        }];
         lbUrl = [[UILabel alloc]initWithFrame:CGRectMake(5, 30, 100, 25)];
         lbUrl.text = @"URL";
         [self.contentView addSubview:lbUrl];
+        [lbUrl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@30);
+            make.left.equalTo(@5);
+            make.width.mas_equalTo(self).offset(-10);
+        }];
         lbPath = [[UILabel alloc]initWithFrame:CGRectMake(5, 55, 100, 25)];
         lbPath.text = @"PATH";
         [self.contentView addSubview:lbPath];
+        [lbPath mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@55);
+            make.left.equalTo(@5);
+            make.width.mas_equalTo(self).offset(-10);
+        }];
         btnDelete = [UIButton buttonWithType:UIButtonTypeCustom];
         [btnDelete setTitle:@"删除" forState:UIControlStateNormal];
         [btnDelete setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
@@ -139,7 +154,7 @@
     if (openFlag) {
         return 125;
     }else{
-        return 70;
+        return 68;
     }
 }
 

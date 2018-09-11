@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ELProject.h"
+#import "ELDownloader.h"
 
 @interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
