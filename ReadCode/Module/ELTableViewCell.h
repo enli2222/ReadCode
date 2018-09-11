@@ -14,6 +14,7 @@
 @property (nonatomic,strong)ELProject *project;
 
 +(CGFloat)getCellHeight:(BOOL)openFlag;
+-(instancetype)initWithController:(UIViewController *)vc reuseIdentifier:(NSString *)reuseIdentifier;
 -(void)unfold:(BOOL)openFlag animated:(BOOL)animated completion:(void (^)(void))completion;
 
 @end

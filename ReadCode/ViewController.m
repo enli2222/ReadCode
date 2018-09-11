@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 #import "ELTableViewCell.h"
 
 @interface ViewController (){
@@ -28,20 +29,12 @@
     tbList.delegate = self;
     tbList.dataSource = self;
     tbList.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    tbList.backgroundColor = [UIColor blackColor];
+    tbList.backgroundColor = [UIColor grayColor];
     tbList.separatorStyle = UITableViewCellSeparatorStyleNone;
     tbList.estimatedRowHeight = 0;
     tbList.estimatedSectionFooterHeight = 0;
     tbList.estimatedSectionHeaderHeight = 0;
     [self.view addSubview:tbList];
-}
-
--(IBAction)onDeleteClick:(id)sender{
-    
-}
-
--(IBAction)onReload:(id)sender{
-    
 }
 
 -(IBAction)onAdd:(id)sender{
@@ -81,6 +74,22 @@
     [self presentViewController:alert animated:NO completion:nil];
 }
 
+-(IBAction)onDeleteClick:(id)sender{
+    
+}
+
+-(IBAction)onReloadClick:(id)sender{
+    
+}
+
+-(IBAction)onDetailClick:(id)sender{
+    if (indexOpenCell > -1 && indexOpenCell < [datalist count]) {
+        ELProject *p = [[ELProject alloc]initWithID:datalist[indexOpenCell]];
+        DetailViewController *dc = [[DetailViewController alloc]initWithPach:p];
+        [self.navigationController pushViewController:dc animated:YES];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [datalist count];
 }
@@ -93,7 +102,7 @@
     static NSString *ID = @"cell";
     ELTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[ELTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[ELTableViewCell alloc] initWithController:self reuseIdentifier:ID];
     }
     ELProject *p = [[ELProject alloc]initWithID:datalist[indexPath.row]];
     cell.project = p;

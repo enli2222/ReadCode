@@ -11,6 +11,7 @@
 @interface ELTableViewCell(){
     UILabel *lbTitle,*lbUrl,*lbPath;
     UIButton *btnDelete,*btnReload,*btnDetail;
+    UIViewController *_parent;
 }
 @end
 
@@ -34,9 +35,10 @@
 //    lbPath.text = _project.path;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+-(instancetype)initWithController:(UIViewController *)vc  reuseIdentifier:(NSString *)reuseIdentifier;{
+    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
+        _parent = vc;
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -56,7 +58,7 @@
         [btnDelete setBackgroundColor:[UIColor blueColor]];
         btnDelete.layer.cornerRadius = 5;
         btnDelete.layer.masksToBounds = YES;
-        [btnDelete addTarget:self.superview action:@selector(onDeleteClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btnDelete addTarget:_parent action:@selector(onDeleteClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnDelete];
         [btnDelete mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@85);
@@ -71,7 +73,7 @@
         [btnReload setBackgroundColor:[UIColor blueColor]];
         btnReload.layer.cornerRadius = 5;
         btnReload.layer.masksToBounds = YES;
-        [btnReload addTarget:self action:@selector(onReloadClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btnReload addTarget:_parent action:@selector(onReloadClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnReload];
         [btnReload mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@85);
@@ -86,7 +88,7 @@
         [btnDetail setBackgroundColor:[UIColor blueColor]];
         btnDetail.layer.cornerRadius = 5;
         btnDetail.layer.masksToBounds = YES;
-        [btnDetail addTarget:self action:@selector(onDetailClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btnDetail addTarget:_parent action:@selector(onDetailClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnDetail];
         [btnDetail mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@85);
@@ -97,18 +99,6 @@
 
     }
     return self;
-}
-
--(IBAction)onDeleteClick:(id)sender{
-    
-}
-
--(IBAction)onReloadClick:(id)sender{
-    
-}
-
--(IBAction)onDetailClick:(id)sender{
-    
 }
 
 - (void)setFrame:(CGRect)frame{
