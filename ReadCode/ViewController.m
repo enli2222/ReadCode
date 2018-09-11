@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "ELProject.h"
 #import "ELTableViewCell.h"
 
 @interface ViewController (){
     UITableView *tbList;
     NSMutableArray *datalist;
+    NSInteger indexOpenCell;
 }
 
 @end
@@ -23,12 +23,25 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     datalist = [ELProject getlist];
+    indexOpenCell = -1;
     tbList = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tbList.delegate = self;
     tbList.dataSource = self;
     tbList.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     tbList.backgroundColor = [UIColor blackColor];
+    tbList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tbList.estimatedRowHeight = 0;
+    tbList.estimatedSectionFooterHeight = 0;
+    tbList.estimatedSectionHeaderHeight = 0;
     [self.view addSubview:tbList];
+}
+
+-(IBAction)onDeleteClick:(id)sender{
+    
+}
+
+-(IBAction)onReload:(id)sender{
+    
 }
 
 -(IBAction)onAdd:(id)sender{
@@ -72,6 +85,10 @@
     return [datalist count];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [ELTableViewCell getCellHeight:(indexPath.row == indexOpenCell)];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *ID = @"cell";
     ELTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -79,11 +96,29 @@
         cell = [[ELTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     ELProject *p = [[ELProject alloc]initWithID:datalist[indexPath.row]];
-    cell.textLabel.text = p.title;
-    cell.detailTextLabel.text = p.url;
+    cell.project = p;
+//    cell.textLabel.text = p.title;
+//    cell.detailTextLabel.text = p.url;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSTimeInterval duration = 0.0;
+    if (indexOpenCell == indexPath.row) {
+        indexOpenCell = -1;
+        duration = 0.5;
+    }else{
+        indexOpenCell = indexPath.row;
+        duration = 0.5;
+    }
+    ELTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell unfold:YES animated:YES completion:nil ];
+    
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [tableView beginUpdates];
+        [tableView endUpdates];
+    } completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

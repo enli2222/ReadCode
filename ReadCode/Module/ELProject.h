@@ -13,6 +13,7 @@
 @property (nonatomic,strong) NSString *id;
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSString *url;
+@property (nonatomic,copy) NSString *path;
 @property (nonatomic,assign) NSString *flag;
 
 +(NSMutableArray *)getlist;
