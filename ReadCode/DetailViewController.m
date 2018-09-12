@@ -82,14 +82,13 @@
     directories.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     if (_project) {
         self.navigationItem.title = _project.title;
-//        self.navigationController.navigationBar.topItem.title = _project.title;
         topPlan = [[UITextView alloc]initWithFrame:CGRectMake(2,self.navigationController.navigationBar.frame.size.height+30,  self.view.bounds.size.width-4, 170-self.navigationController.navigationBar.frame.size.height)];
         topPlan.text = [NSString stringWithFormat:@"项目:%@\r\nURL:%@\r\n目录:%@",_project.title,_project.url,_project.path];
         topPlan.textAlignment = NSTextAlignmentLeft;
-        topPlan.layer.borderColor = [UIColor redColor].CGColor;
+        topPlan.layer.borderColor = [UIColor blackColor].CGColor;
         topPlan.layer.borderWidth = 1;
-        topPlan.layer.cornerRadius =5;
-        topPlan.editable =NO;
+        topPlan.layer.cornerRadius = 5;
+        topPlan.editable = NO;
         [self.view addSubview:topPlan];
     }
     [self.view addSubview:directories];
@@ -110,9 +109,8 @@
     // 2.如果cell为nil（缓存池找不到对应的cell）
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-            cell.textLabel.font = [UIFont fontWithName:@"iconfont" size:12];
+            cell.textLabel.font = [UIFont fontWithName:@"iconfont" size:16];
     }
-    
     // 3.覆盖数据
     if ([_data count] > indexPath.row) {
         ELFileNode *file =_data[indexPath.row];
@@ -123,7 +121,7 @@
             title = [NSString stringWithFormat:@"\U0000eac5%@",title];
         }
         for (int i=0; i<file.depth; i++) {
-            title = [NSString stringWithFormat:@" %@",title];
+            title = [NSString stringWithFormat:@"  %@",title];
         }
         cell.textLabel.text = title;
     }else{
@@ -134,7 +132,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ELFileNode *parentNode = _data[indexPath.row];
-    NSInteger startPosition = indexPath.row +1;
+    NSInteger startPosition = indexPath.row + 1;
     BOOL expand = parentNode.expand;
     if (parentNode.type == 0) {
         if (!expand) {
