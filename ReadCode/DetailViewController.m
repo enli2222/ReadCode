@@ -50,9 +50,9 @@
         node.depth = depth +1;
         node.expand = NO;
         if (isDir) {
-            node.type = 0;
+            node.type = 0;  //目录
         }else{
-            node.type = 1;
+            node.type = 1;  //文件
         }
         isDir = NO;
         [result addObject:node];
@@ -107,14 +107,20 @@
     // 2.如果cell为nil（缓存池找不到对应的cell）
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+            cell.textLabel.font = [UIFont fontWithName:@"iconfont" size:12];
     }
     
     // 3.覆盖数据
     if ([_data count] > indexPath.row) {
         ELFileNode *file =_data[indexPath.row];
         NSString *title =file.name;
+        if (file.type == 0) {
+            title = [NSString stringWithFormat:@"\U0000eac6%@",title];
+        }else{
+            title = [NSString stringWithFormat:@"\U0000eac5%@",title];
+        }
         for (int i=0; i<file.depth; i++) {
-            title = [NSString stringWithFormat:@"-%@",title];
+            title = [NSString stringWithFormat:@" %@",title];
         }
         cell.textLabel.text = title;
     }else{

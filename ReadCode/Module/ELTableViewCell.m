@@ -43,7 +43,8 @@
         self.layer.masksToBounds = YES;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         lbTitle = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 100, 25)];
-        lbTitle.text = @"Title";
+//        lbTitle.font = [UIFont fontWithName:@"iconfont" size:24];
+        lbTitle.text = @"名称";
         [self.contentView addSubview:lbTitle];
         [lbTitle mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@5);

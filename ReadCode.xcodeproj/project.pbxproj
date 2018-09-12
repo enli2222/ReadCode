@@ -19,6 +19,7 @@
 		8D9CA3E92147BF1200E6FE8B /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3DE2147BF1100E6FE8B /* MASViewConstraint.m */; };
 		8D9CA3EA2147BF1200E6FE8B /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3DF2147BF1100E6FE8B /* MASViewAttribute.m */; };
 		8D9CA3EB2147BF1200E6FE8B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D9CA3E02147BF1100E6FE8B /* Info.plist */; };
+		8D9CA3ED2148DAB900E6FE8B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D9CA3EC2148DAB900E6FE8B /* iconfont.ttf */; };
 		8DD48DD7212D562600861DEB /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DCD212D562500861DEB /* AFSecurityPolicy.m */; };
 		8DD48DD8212D562600861DEB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DCE212D562500861DEB /* AFURLSessionManager.m */; };
 		8DD48DD9212D562600861DEB /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DD0212D562500861DEB /* AFURLRequestSerialization.m */; };
@@ -82,6 +83,7 @@
 		8D9CA3DE2147BF1100E6FE8B /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		8D9CA3DF2147BF1100E6FE8B /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		8D9CA3E02147BF1100E6FE8B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9CA3EC2148DAB900E6FE8B /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		8DD48DCA212D562500861DEB /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		8DD48DCB212D562500861DEB /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		8DD48DCC212D562500861DEB /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		8DD48DC5212D0C0A00861DEB /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				8D9CA3EC2148DAB900E6FE8B /* iconfont.ttf */,
 				8DD48DDD212D577500861DEB /* ELDownloader.h */,
 				8DD48DDE212D577500861DEB /* ELDownloader.m */,
 				8DD48E1C213000C400861DEB /* ELFileNode.h */,
@@ -388,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9CA3ED2148DAB900E6FE8B /* iconfont.ttf in Resources */,
 				9BAC1240212C4EBD00876AE0 /* LaunchScreen.storyboard in Resources */,
 				9BAC123D212C4EBD00876AE0 /* Assets.xcassets in Resources */,
 				8D9CA3EB2147BF1200E6FE8B /* Info.plist in Resources */,
