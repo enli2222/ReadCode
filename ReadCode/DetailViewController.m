@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "CodeViewController.h"
 #import "ELFileNode.h"
 
 @interface DetailViewController (){
@@ -67,7 +68,6 @@
         NSString *dpath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         dpath = [NSString stringWithFormat:@"%@/projects/%@",dpath,_project.path];
         _data = [self getThroughAllatPath:dpath depth:0];
-        
     }
     return self;
 }
@@ -75,11 +75,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
     directories = [[UITableView alloc]initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+200, self.view.bounds.size.width, self.view.bounds.size.height-200) style:UITableViewStylePlain];
     directories.delegate = self;
     directories.dataSource = self;
     directories.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     if (_project) {
+        self.navigationItem.title = _project.title;
+//        self.navigationController.navigationBar.topItem.title = _project.title;
         topPlan = [[UITextView alloc]initWithFrame:CGRectMake(2,self.navigationController.navigationBar.frame.size.height+30,  self.view.bounds.size.width-4, 170-self.navigationController.navigationBar.frame.size.height)];
         topPlan.text = [NSString stringWithFormat:@"项目:%@\r\nURL:%@\r\n目录:%@",_project.title,_project.url,_project.path];
         topPlan.textAlignment = NSTextAlignmentLeft;
@@ -133,20 +136,23 @@
     ELFileNode *parentNode = _data[indexPath.row];
     NSInteger startPosition = indexPath.row +1;
     BOOL expand = parentNode.expand;
-    if (parentNode.type == 0  && !expand ) {
-        NSArray *insertData = [self getThroughAllatPath: [NSString stringWithFormat:@"%@/%@", parentNode.path,parentNode.name] depth:parentNode.depth];
-        NSMutableArray *indexPathArray = [NSMutableArray array];
-        for (int i=0; i < [insertData count]; i++) {
-            ELFileNode *node =[insertData objectAtIndex:i];
-            [_data insertObject:node atIndex:startPosition+i];
-            NSIndexPath *tempIndexPath = [NSIndexPath indexPathForRow:startPosition+i inSection:0];
-            [indexPathArray addObject:tempIndexPath];
+    if (parentNode.type == 0) {
+        if (!expand) {
+            NSArray *insertData = [self getThroughAllatPath: [NSString stringWithFormat:@"%@/%@", parentNode.path,parentNode.name] depth:parentNode.depth];
+            NSMutableArray *indexPathArray = [NSMutableArray array];
+            for (int i=0; i < [insertData count]; i++) {
+                ELFileNode *node =[insertData objectAtIndex:i];
+                [_data insertObject:node atIndex:startPosition+i];
+                NSIndexPath *tempIndexPath = [NSIndexPath indexPathForRow:startPosition+i inSection:0];
+                [indexPathArray addObject:tempIndexPath];
+            }
+            
+            [directories insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
+            parentNode.expand = YES;
         }
-        
-        [directories insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
-        parentNode.expand = YES;
     }else{
-//        [directories deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
+        CodeViewController *cvc = [[CodeViewController alloc] initWithfile:parentNode.name path:parentNode.path];
+        [self.navigationController pushViewController:cvc animated:YES];
     }
     
 }
