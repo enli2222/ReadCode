@@ -59,23 +59,22 @@ typedef void(^EndBlock)(NSString *);
             NSLog(@"%@",error.description);
         }else{
             NSString *dpath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            dpath = [NSString stringWithFormat:@"%@/projects",dpath];
              NSLog(@"%@",[filePath path]);
             if (![SSZipArchive unzipFileAtPath:[filePath path] toDestination:dpath delegate:self]) {
                 NSLog(@"解压失败");
             }
-            
         }
     }];
     
 }
 
 - (void)zipArchiveDidUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo unzippedPath:(NSString *)unzippedPath{
-    
-    NSString *dpath = [NSString stringWithFormat:@"%@/%@",unzippedPath,[[path lastPathComponent] stringByDeletingPathExtension]];
-    NSLog(@"%@",dpath);
+//    NSString *dpath = [NSString stringWithFormat:@"%@/%@",unzippedPath,[[path lastPathComponent] stringByDeletingPathExtension]];
+//    NSLog(@"%@",dpath);
     if (self->_endBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self->_endBlock(dpath);
+            self->_endBlock([[path lastPathComponent] stringByDeletingPathExtension]);
         });
     }
 }

@@ -13,6 +13,7 @@
     ELProject *_project;
     UITableView *directories;
     NSMutableArray *_data;
+    UITextView *topPlan;
 }
 
 @end
@@ -63,7 +64,10 @@
 -(instancetype)initWithProject:(ELProject *)project{
     if (self = [super init]) {
         _project = project;
-        _data = [self getThroughAllatPath:_project.path depth:0];
+        NSString *dpath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        dpath = [NSString stringWithFormat:@"%@/projects/%@",dpath,_project.path];
+        _data = [self getThroughAllatPath:dpath depth:0];
+        
     }
     return self;
 }
@@ -75,6 +79,16 @@
     directories.delegate = self;
     directories.dataSource = self;
     directories.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    if (_project) {
+        topPlan = [[UITextView alloc]initWithFrame:CGRectMake(2,self.navigationController.navigationBar.frame.size.height+30,  self.view.bounds.size.width-4, 170-self.navigationController.navigationBar.frame.size.height)];
+        topPlan.text = [NSString stringWithFormat:@"项目:%@\r\nURL:%@\r\n目录:%@",_project.title,_project.url,_project.path];
+        topPlan.textAlignment = NSTextAlignmentLeft;
+        topPlan.layer.borderColor = [UIColor redColor].CGColor;
+        topPlan.layer.borderWidth = 1;
+        topPlan.layer.cornerRadius =5;
+        topPlan.editable =NO;
+        [self.view addSubview:topPlan];
+    }
     [self.view addSubview:directories];
 }
 
