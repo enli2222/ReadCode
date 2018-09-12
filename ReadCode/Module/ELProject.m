@@ -56,6 +56,7 @@
 }
 
 -(void)del{
+    [[NSFileManager defaultManager] removeItemAtPath:_path error:nil];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:_id];
     NSMutableArray *list = [[self class] getlist];
     if ([list indexOfObject:_id] != NSNotFound ) {
