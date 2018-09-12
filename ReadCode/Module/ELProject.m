@@ -58,7 +58,7 @@
 -(void)del{
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:_id];
     NSMutableArray *list = [[self class] getlist];
-    if ([list indexOfObject:_id]== NSNotFound ) {
+    if ([list indexOfObject:_id] != NSNotFound ) {
         [list removeObject:_id];
         [[NSUserDefaults standardUserDefaults] setObject:list forKey:LISTNAME];
     }

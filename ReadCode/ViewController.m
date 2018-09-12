@@ -71,7 +71,15 @@
 }
 
 -(IBAction)onDeleteClick:(id)sender{
-    
+    if (indexOpenCell > -1 && indexOpenCell < [datalist count]) {
+        ELProject *p = [[ELProject alloc]initWithID:datalist[indexOpenCell]];
+        [p del];
+        datalist = [ELProject getlist];
+        NSIndexPath *tempIndexPath = [NSIndexPath indexPathForRow:indexOpenCell inSection:0];
+        NSArray *indexPathArray = @[tempIndexPath];
+//        [indexPathArray addObject:tempIndexPath];
+        [tbList deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 -(IBAction)onReloadClick:(id)sender{
@@ -115,8 +123,6 @@
     }
     ELProject *p = [[ELProject alloc]initWithID:datalist[indexPath.row]];
     cell.project = p;
-//    cell.textLabel.text = p.title;
-//    cell.detailTextLabel.text = p.url;
     return cell;
 }
 
