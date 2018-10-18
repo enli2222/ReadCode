@@ -15,6 +15,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "NavViewController.h"
 #import "DetailViewController.h"
 
 @interface AppDelegate (){
@@ -31,7 +32,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     vc = [[ViewController alloc]init];
-    nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav = [[NavViewController alloc] initWithRootViewController:vc];
     nav.navigationBarHidden = NO;
     nav.navigationBar.barStyle = UIBarStyleBlack;
     nav.navigationBar.topItem.title = @"代码库";

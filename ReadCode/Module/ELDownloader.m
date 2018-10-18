@@ -22,7 +22,13 @@ typedef void(^EndBlock)(NSString *);
 
 -(instancetype)initWithURL:(NSString *)url end:(void (^)(NSString *dpath)) endBlock{
     if (self=[super init]) {
-        _url = url;
+        //https://github.com/inconshreveable/ngrok/archive/master.zip
+        
+        if ([[url pathExtension] isEqualToString:@"zip"]) {
+            _url = url;
+        }else{
+            _url = [url stringByAppendingString:@"/archive/master.zip"];
+        }
         _endBlock = endBlock;
     }
     return self;

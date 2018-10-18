@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D452369215A1BFB00D76748 /* ELMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D452368215A1BFB00D76748 /* ELMessage.m */; };
 		8D768E2E2139273B00AF3393 /* ELTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D768E2D2139273B00AF3393 /* ELTableViewCell.m */; };
 		8D9CA3E12147BF1200E6FE8B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3C82147BF1100E6FE8B /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		8D9CA3E22147BF1200E6FE8B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3D12147BF1100E6FE8B /* ViewController+MASAdditions.m */; };
@@ -18,7 +19,6 @@
 		8D9CA3E82147BF1200E6FE8B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3DC2147BF1100E6FE8B /* MASConstraint.m */; };
 		8D9CA3E92147BF1200E6FE8B /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3DE2147BF1100E6FE8B /* MASViewConstraint.m */; };
 		8D9CA3EA2147BF1200E6FE8B /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3DF2147BF1100E6FE8B /* MASViewAttribute.m */; };
-		8D9CA3EB2147BF1200E6FE8B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D9CA3E02147BF1100E6FE8B /* Info.plist */; };
 		8D9CA3ED2148DAB900E6FE8B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D9CA3EC2148DAB900E6FE8B /* iconfont.ttf */; };
 		8D9CA3F0214908C700E6FE8B /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9CA3EF214908C700E6FE8B /* CodeViewController.m */; };
 		8DD48DD7212D562600861DEB /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48DCD212D562500861DEB /* AFSecurityPolicy.m */; };
@@ -46,6 +46,7 @@
 		8DD48E18212FD6FB00861DEB /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E04212FD6FA00861DEB /* aestab.c */; };
 		8DD48E19212FD6FB00861DEB /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E07212FD6FB00861DEB /* SSZipArchive.m */; };
 		8DD48E1E213000C400861DEB /* ELFileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD48E1D213000C400861DEB /* ELFileNode.m */; };
+		8DD534D1217886DA00D26EFF /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD534D0217886DA00D26EFF /* NavViewController.m */; };
 		8DED19EE21479664009DFD60 /* ELProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DED19EC21479664009DFD60 /* ELProject.m */; };
 		9B422BA1212C68B9003BBB87 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B422BA0212C68B9003BBB87 /* DetailViewController.m */; };
 		9BAC1235212C4EBB00876AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC1234212C4EBB00876AE0 /* AppDelegate.m */; };
@@ -56,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D452367215A1BFB00D76748 /* ELMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMessage.h; sourceTree = "<group>"; };
+		8D452368215A1BFB00D76748 /* ELMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMessage.m; sourceTree = "<group>"; };
 		8D768E2C2139273B00AF3393 /* ELTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTableViewCell.h; sourceTree = "<group>"; };
 		8D768E2D2139273B00AF3393 /* ELTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTableViewCell.m; sourceTree = "<group>"; };
 		8D9CA3C72147BF1100E6FE8B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -83,7 +86,6 @@
 		8D9CA3DD2147BF1100E6FE8B /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		8D9CA3DE2147BF1100E6FE8B /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		8D9CA3DF2147BF1100E6FE8B /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		8D9CA3E02147BF1100E6FE8B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D9CA3EC2148DAB900E6FE8B /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		8D9CA3EE214908C700E6FE8B /* CodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
 		8D9CA3EF214908C700E6FE8B /* CodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
@@ -142,6 +144,8 @@
 		8DD48E08212FD6FB00861DEB /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
 		8DD48E1C213000C400861DEB /* ELFileNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELFileNode.h; sourceTree = "<group>"; };
 		8DD48E1D213000C400861DEB /* ELFileNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELFileNode.m; sourceTree = "<group>"; };
+		8DD534CF217886DA00D26EFF /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
+		8DD534D0217886DA00D26EFF /* NavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavViewController.m; sourceTree = "<group>"; };
 		8DED19EC21479664009DFD60 /* ELProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELProject.m; sourceTree = "<group>"; };
 		8DED19ED21479664009DFD60 /* ELProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELProject.h; sourceTree = "<group>"; };
 		9B1888742147F8E7004299B6 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
@@ -169,6 +173,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D452363215A195100D76748 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				8D452367215A1BFB00D76748 /* ELMessage.h */,
+				8D452368215A1BFB00D76748 /* ELMessage.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		8D9CA3C62147BF1100E6FE8B /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +210,6 @@
 				8D9CA3DD2147BF1100E6FE8B /* ViewController+MASAdditions.h */,
 				8D9CA3DE2147BF1100E6FE8B /* MASViewConstraint.m */,
 				8D9CA3DF2147BF1100E6FE8B /* MASViewAttribute.m */,
-				8D9CA3E02147BF1100E6FE8B /* Info.plist */,
 			);
 			path = Masonry;
 			sourceTree = "<group>";
@@ -319,6 +331,7 @@
 		9BAC1232212C4EBB00876AE0 /* ReadCode */ = {
 			isa = PBXGroup;
 			children = (
+				8D452363215A195100D76748 /* Component */,
 				8D9CA3C62147BF1100E6FE8B /* Masonry */,
 				8DD48DE0212FD6E700861DEB /* ZipArchive */,
 				8DD48DC9212D560C00861DEB /* AFNetworking */,
@@ -327,6 +340,8 @@
 				9BAC1234212C4EBB00876AE0 /* AppDelegate.m */,
 				9BAC1236212C4EBB00876AE0 /* ViewController.h */,
 				9BAC1237212C4EBB00876AE0 /* ViewController.m */,
+				8DD534CF217886DA00D26EFF /* NavViewController.h */,
+				8DD534D0217886DA00D26EFF /* NavViewController.m */,
 				9B422B9F212C68B9003BBB87 /* DetailViewController.h */,
 				9B422BA0212C68B9003BBB87 /* DetailViewController.m */,
 				8D9CA3EE214908C700E6FE8B /* CodeViewController.h */,
@@ -399,7 +414,6 @@
 				8D9CA3ED2148DAB900E6FE8B /* iconfont.ttf in Resources */,
 				9BAC1240212C4EBD00876AE0 /* LaunchScreen.storyboard in Resources */,
 				9BAC123D212C4EBD00876AE0 /* Assets.xcassets in Resources */,
-				8D9CA3EB2147BF1200E6FE8B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,11 +458,13 @@
 				8DD48E15212FD6FB00861DEB /* aes_ni.c in Sources */,
 				8D9CA3E12147BF1200E6FE8B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				8DD48E10212FD6FB00861DEB /* aeskey.c in Sources */,
+				8DD534D1217886DA00D26EFF /* NavViewController.m in Sources */,
 				8DD48E0E212FD6FB00861DEB /* ioapi_mem.c in Sources */,
 				8DD48E17212FD6FB00861DEB /* pwd2key.c in Sources */,
 				8DD48E14212FD6FB00861DEB /* sha1.c in Sources */,
 				8DD48E0B212FD6FB00861DEB /* zip.c in Sources */,
 				9B422BA1212C68B9003BBB87 /* DetailViewController.m in Sources */,
+				8D452369215A1BFB00D76748 /* ELMessage.m in Sources */,
 				8DD48E12212FD6FB00861DEB /* aescrypt.c in Sources */,
 				8DD48DD9212D562600861DEB /* AFURLRequestSerialization.m in Sources */,
 				8D9CA3E82147BF1200E6FE8B /* MASConstraint.m in Sources */,

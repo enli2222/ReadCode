@@ -9,11 +9,13 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "ELTableViewCell.h"
+#import "ELMessage.h"
 
 @interface ViewController (){
     UITableView *tbList;
     NSMutableArray *datalist;
     NSInteger indexOpenCell;
+    UIActivityIndicatorView * activityIndicator;
 }
 
 @end
@@ -35,6 +37,17 @@
     tbList.estimatedSectionFooterHeight = 0;
     tbList.estimatedSectionHeaderHeight = 0;
     [self.view addSubview:tbList];
+    
+    activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:(UIActivityIndicatorViewStyleWhiteLarge)];
+    [self.view addSubview:activityIndicator];
+    //设置小菊花的frame
+    activityIndicator.frame= self.view.bounds;
+    //设置小菊花颜色
+    activityIndicator.color = [UIColor yellowColor];
+    //设置背景颜色
+    activityIndicator.backgroundColor = [UIColor clearColor];
+    //刚进入这个界面会显示控件，并且停止旋转也会显示，只是没有在转动而已，没有设置或者设置为YES的时候，刚进入页面不会显示
+    activityIndicator.hidesWhenStopped = YES;
 }
 
 -(IBAction)onAdd:(id)sender{
@@ -54,7 +67,14 @@
     UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"新增" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *name = alert.textFields.firstObject;
         UITextField *url= alert.textFields.lastObject;
-        
+        if ([name.text isEqualToString:@""]) {
+            [ELMessage show:@"项目描述不能为空!!" title:@"警告" present:self.navigationController];
+            return;
+        }
+        if ([url.text isEqualToString:@""]) {
+            [ELMessage show:@"项目URL不能为空!!" title:@"警告" present:self.navigationController];
+            return;
+        }
         NSLog(@"name is %@, url is %@",name.text,url.text);
         ELProject *p = [[ELProject alloc] initWithID: [NSUUID UUID].UUIDString];
         p.title = name.text;
@@ -86,9 +106,11 @@
     if (indexOpenCell > -1 && indexOpenCell < [datalist count]) {
         ELProject *p = [[ELProject alloc]initWithID:datalist[indexOpenCell]];
         if (p.url && [p.url length] > 0) {
+            [activityIndicator startAnimating];
             [[[ELDownloader alloc]initWithURL:p.url end:^(NSString *dpath) {
                 p.path = dpath;
                 [p save];
+                [self->activityIndicator stopAnimating];
                 DetailViewController *dc = [[DetailViewController alloc]initWithProject:p];
                 [self.navigationController pushViewController:dc animated:YES];
             }]resume];
@@ -142,6 +164,10 @@
         [tableView beginUpdates];
         [tableView endUpdates];
     } completion:nil];
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
