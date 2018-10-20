@@ -29,6 +29,10 @@
     return self.topViewController.shouldAutorotate;
 }
 
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return self.topViewController.supportedInterfaceOrientations;
+}
+
 /**以下两个方法可不写*/
 
 //- (UIInterfaceOrientationMask)supportedInterfaceOrientations
