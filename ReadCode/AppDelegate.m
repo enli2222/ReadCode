@@ -41,6 +41,8 @@
     nav.toolbar.barStyle = UIBarStyleBlack;
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:vc action:@selector(onAdd:)];
     nav.navigationBar.topItem.rightBarButtonItem = barButton;
+    barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:vc action:@selector(onAsk:)];
+    nav.navigationBar.topItem.leftBarButtonItem = barButton;
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "WebViewController.h"
 #import "ELTableViewCell.h"
 #import "ELMessage.h"
 
@@ -48,6 +49,11 @@
     activityIndicator.backgroundColor = [UIColor clearColor];
     //刚进入这个界面会显示控件，并且停止旋转也会显示，只是没有在转动而已，没有设置或者设置为YES的时候，刚进入页面不会显示
     activityIndicator.hidesWhenStopped = YES;
+}
+
+-(IBAction)onAsk:(id)sender{
+    WebViewController *wvc = [[WebViewController alloc]init];
+    [self.navigationController pushViewController:wvc animated:YES];
 }
 
 -(IBAction)onAdd:(id)sender{

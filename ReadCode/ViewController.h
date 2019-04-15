@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 -(IBAction)onAdd:(id)sender;
+-(IBAction)onAsk:(id)sender;
 
 @end
 

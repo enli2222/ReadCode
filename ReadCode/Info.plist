@@ -36,6 +36,7 @@
 	<string>调用相册</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>URW_DIN_Medium.ttf</string>
 		<string>iconfont.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
